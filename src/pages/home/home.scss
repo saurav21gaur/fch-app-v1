@@ -1,0 +1,70 @@
+page-home {
+  .scroll-content{
+    background-color: #f3f3f5;
+  }
+  .slider{
+    ion-slide{
+      position: relative;
+      text-align: center;
+    }
+
+    img{
+      width: 100%;
+      height: auto;
+    }
+
+
+  }
+ .card-background-page {
+
+  ion-card, .cards {
+    position: relative;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 7px 7px 32px -5px rgba(138,138,138,1);
+
+
+    img{
+      border-radius: 10px;
+    }
+  }
+.card1{
+background-color: #ed7272;
+}
+.card2{
+background-color: #9fea73;
+}
+.card3{
+background-color: #73b7ea;
+}
+.card4{
+background-color: #fcf877;
+}
+  .card-title {
+    position: absolute;
+    top: 74%;
+    font-size: 1.3em;
+    width: 100%;
+    font-weight: bold;
+    color: #3f3f3f;
+  }
+  }
+
+  #notification-button {
+            position: relative;
+            width: 42px;
+            top:1px;
+            right: 1px;
+            overflow: visible!important;
+        }
+
+
+   #notifications-badge {
+            background-color: #EF476F;
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            border-radius: 100%;
+
+          }
+}

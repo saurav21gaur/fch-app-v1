@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar no-border>
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{subject | uppercase}} - {{type | titlecase }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content scroll="false">
+  <!-- <ion-searchbar (ionInput)="getVideoCategoryByTitle($event)"></ion-searchbar> -->
+  <ion-list *ngIf="!nothing; else noVids;">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."
+        color="primary">
+      </ion-refresher-content>
+    </ion-refresher>
+    <button ion-item *ngFor="let videoGroup of videoCollection" [navPush]="videosPage" [navParams]="videoGroup">
+      <ion-icon class="animate-in-primary" color="btn" [name]="videoGroup.icon" item-left></ion-icon>
+      <h2 class="animate-in-primary" text-wrap>{{ videoGroup.setId }}</h2>
+      <p class="animate-in-secondary">{{ videoGroup.videos.length }} Videos</p>
+    </button>
+  </ion-list>
+
+  <ng-template #noVids>
+
+    <div class="nothing">
+      <img src="assets/images/blank.png" alt="Sorry Cat">
+    </div>
+
+
+  </ng-template>
+</ion-content>

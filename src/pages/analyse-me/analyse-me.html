@@ -1,0 +1,136 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Learn 'Yo' Way!</ion-title>
+    <ion-buttons right>
+      <button ion-button (tap)="presentInstructions()">
+        <ion-icon name="help"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content scroll="false">
+
+  <!--VIDEO HERE-->
+  <div *ngIf="question; else quizEnd">
+    <ng-template #videoTag>
+      <vg-player (onPlayerReady)="onPlayerReady($event)">
+        <vg-overlay-play></vg-overlay-play>
+        <vg-buffering></vg-buffering>
+
+        <vg-controls>
+          <vg-play-pause></vg-play-pause>
+          <vg-playback-button></vg-playback-button>
+
+          <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+
+          <vg-scrub-bar>
+            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+            <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+          </vg-scrub-bar>
+          <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+
+          <vg-mute></vg-mute>
+          <vg-volume></vg-volume>
+
+          <vg-fullscreen></vg-fullscreen>
+        </vg-controls>
+
+        <video [vgMedia]="media" #media [src]="analysisVideo" id="singleVideo" preload="auto" poster="assets/images/transparent.png">
+
+        </video>
+      </vg-player>
+
+      <!--QUIZ PORTION-->
+    </ng-template>
+    <div *ngIf="!video; else videoTag" horizontal-padding class="last">
+      <progress-bar [progress]="progressIndex" [total]="quizCollection?.length"></progress-bar>
+      <ion-item text-wrap no-lines>
+        <p>Based on what you just heard, answer the following questions:</p>
+      </ion-item>
+      <ion-slides (ionSlideDidChange)="quesChanged()" #slide>
+        <ion-slide *ngFor="let currentQuestion of quizCollection; let i=index;">
+          <ion-card no-padding>
+            <ion-card-content text-left>
+              <ion-card-title>
+                Question {{i+1}}
+              </ion-card-title>
+              <p>
+                {{currentQuestion?.question}}
+              </p>
+            </ion-card-content>
+          </ion-card>
+
+          <ion-list radio-group mode="ios">
+            <ion-item *ngFor="let answer of currentQuestion?.answers; let j=index;" mode="ios">
+              <ion-label text-wrap>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-2>
+                      {{answer.answerKey}}.
+                    </ion-col>
+                    <ion-col text-wrap id="answerText">
+                      {{answer.answerText}}
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+
+              </ion-label>
+              <ion-radio [value]="answer" (click)="changeQuestion(i, j)" mode="ios" color="headerColor"></ion-radio>
+            </ion-item>
+          </ion-list>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+
+  <!--To Analysis-->
+  <ng-template #quizEnd>
+    <div class="quiz" padding>
+
+      <div class="div-img">
+        <img src="assets/images/grad.png" alt="Great!">
+      </div>
+      <ion-card>
+        <ion-card-header text-center>Your Analysis is complete</ion-card-header>
+        <ion-card-content>
+          <p text-center>Compare your scores:</p>
+          <canvas #barCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6 class="first">
+            <h1>{{marks1*100/max}}%</h1>
+            <p>in Quiz 1</p>
+          </ion-col>
+          <ion-col col-6 class="second">
+            <h1>{{marks2*100/max}}%</h1>
+            <p>in Quiz 2</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- <button ion-button block round outline (tap)="getExplanation()" color="chapterB">Get Overview</button> -->
+      <hr>
+      <ion-grid>
+        <ion-row>
+          <ion-grid col-6>
+            <button ion-button (tap)="getAnswers()" color="chapterB">Check answers</button>
+
+          </ion-grid>
+          <ion-grid col-6>
+            <button ion-button (tap)="resetScore()" color="chapterA">Re-try Analysis</button>
+
+          </ion-grid>
+        </ion-row>
+      </ion-grid>
+      <button ion-button round block outline (tap)="visitStore()" color="btn">View our Products</button>
+
+
+    </div>
+  </ng-template>
+</ion-content>

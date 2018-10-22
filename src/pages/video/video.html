@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-wrap>{{ text }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding text-center>
+  <ion-card>
+    <ion-card-content>
+      <div class="vid">
+        <img [src]="url | concat" alt="Videos by Farooq Haque">
+        <div class="play">
+          <button ion-fab color="light" (tap)="openVideo(url)"><ion-icon name="play"></ion-icon></button>
+        </div>
+      </div>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button small outline color="danger" (tap)="onClose(true)">
+            Unfavorite
+          </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <button ion-button color="danger" (tap)="onClose()">Close</button>
+</ion-content>

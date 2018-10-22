@@ -1,0 +1,27 @@
+page-contact {
+  .scroll-content {
+            background-image: url("../assets/img/contactus.png");
+            background-size: cover;
+            background-position-x: 50%;
+        }
+
+        .content{
+          background-color:transparent;
+        }
+        .text{
+          color:white;
+        }
+
+
+   ion-list {
+   position: relative;
+   margin-top: 100px;
+   background-color:transparent;
+   padding-top: 92px;
+ }
+  .address{
+    p{
+      color: map-get($colors, light);
+    }
+  }
+}

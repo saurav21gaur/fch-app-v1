@@ -1,0 +1,32 @@
+page-instructions {
+  @import url('https://fonts.googleapis.com/css?family=Bree+Serif|Gudea|Julius+Sans+One|Open+Sans|Open+Sans+Condensed:300');
+
+  hr {
+    border: 0;
+    height: 3px;
+    background-image: linear-gradient(to right, rgba(239, 83, 80, 0), rgba(239, 83, 80, 0.75), rgba(239, 83, 80, 0));
+  }
+  .img-radius {
+    height: 161px;
+    width: 161px;
+    margin: auto;
+    display: block;
+  }
+  p,
+  li {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8em;
+  }
+  .img-right{
+    height: 161px;
+    text-align: right;
+    img{
+      text-align: right !important;
+    }
+  }
+  .img-win{
+    height: 225px;
+    margin: auto;
+    display: block;
+  }
+}

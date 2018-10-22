@@ -1,0 +1,21 @@
+  page-quiz-library {
+
+  .slider{
+    left: 0;
+    top: 44px;
+    width: 100%;
+  }
+
+   .inner-list{
+          margin-bottom: 0px;
+    }
+
+    .item-divider{
+      background: map-get($colors,primary);
+      color:white;
+    }
+
+    .item-block{
+      
+    }
+}

@@ -1,0 +1,26 @@
+page-login {
+
+  .scroll-content{
+    background: #ffffff;
+    padding-top: 50px !important;
+  }
+
+    .item.item-input, .item {
+        background-color: transparent;
+
+    }
+    img{
+        height: 20vh;
+        width: auto;
+        margin: auto;
+        display: block;
+    }
+    .grid{
+      padding: 0px;
+    }
+    ion-grid{
+      [col-12] {
+          padding: 0px;
+      }
+    }
+}

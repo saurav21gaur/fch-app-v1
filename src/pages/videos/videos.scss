@@ -1,0 +1,18 @@
+page-videos {
+  .vid{
+    position: relative;
+    .play {
+      position: absolute;
+      top: 36%;
+      left: 38%;
+      align-content: center;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .icon-md-btn, .icon-ios-btn, .icon-wp-btn{
+    background-color: map-get($colors, header) !important;
+  }
+
+}

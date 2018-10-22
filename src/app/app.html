@@ -1,0 +1,32 @@
+<ion-menu [content]="nav" id="menu">
+  <ion-header>
+    <ion-toolbar id="menu-toolbar">
+      <div id="menu-profile">
+         <ion-list no-lines no-padding id="menu-head">
+        <ion-item >
+          <ion-avatar item-left >
+            <img [src]="profilePicture">
+          </ion-avatar>
+          <h1>{{fullname}}</h1>
+          <p>{{email}}</p>
+        </ion-item>
+        <button ion-item (click)="onLoad(profilePage)">
+          View Profile
+        </button>
+         </ion-list>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content id="menu-content">
+    <ion-list>
+      <button *ngFor="let page of pages" ion-item (click)="onLoad(page.component)">
+        <ion-icon [name]="page.icon" item-left color="btn"></ion-icon>
+        {{page.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #nav></ion-nav>
+
+

@@ -1,0 +1,63 @@
+<ion-header >
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Farooq Haque Classes
+    </ion-title>
+    <ion-buttons end>
+      <button id="notification-button" ion-button clear (tap) = "navigateToAnnouncements()">
+        <ion-icon name="notifications"> <ion-badge id="notifications-badge" color="danger" *ngIf="show">!</ion-badge></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="card-background-page background" scroll="false">
+   <div class="slider">
+    <ion-slides pager loop>
+      <ion-slide *ngFor="let slide of slides">
+          <img [src]="slide.url">
+      </ion-slide>
+    </ion-slides>
+
+  </div>
+
+  <ion-grid text-center>
+    <ion-row wrap>
+      <ion-col col-6>
+        <div class="cards card1"  tappable (click)="toAnalysisPage()">
+          <img src="assets/images/Analyse.png" />
+          <div class="card-title">Learning Skills</div>
+          </div>
+      </ion-col>
+      <ion-col col-6>
+        <div class="cards card2" tappable [navPush]="quizLibraryPage">
+          <img src="assets/images/Quiz.png" />
+          <div class="card-title">Quizzes Galore!</div>
+        </div>
+      </ion-col>
+      <ion-col col-6>
+        <div class="cards card3" tappable [navPush]="rootLibraryPage">
+          <img src="assets/images/Video.png" />
+          <div class="card-title">Video Library</div>
+         </div>
+      </ion-col>
+      <ion-col col-6><div class="cards card4" tappable [navPush]="announcements">
+         <img src="assets/images/Notification.png" />
+          <div class="card-title">Knowledge Center</div>
+        </div>
+      </ion-col>
+      <ion-col col-6><div class="cards card4" tappable [navPush]="studyPlan">
+          <img src="assets/images/Notification.png" />
+           <div class="card-title">Study Plan</div>
+         </div>
+       </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,118 @@
+page-analyse-me {
+  .scroll-content{
+     background:transparent url('../assets/images/profilebg.png') no-repeat 0 0;
+      -webkit-background-size:cover;
+      -moz-background-size:cover;
+      -o-background-size:cover;
+      background-size:cover;
+  }
+  vg-player {
+      font-family: 'videogular';
+      position: relative;
+      display: flex;
+      height: 90vh;
+      overflow: hidden;
+      background-color: black;
+  }
+
+
+  ion-item.quiz, ion-item.item.item-block.item-radio.item-ios, ion-item.item-md, ion-item.item-wp{
+    font-size: 1.7rem !important;
+  }
+
+  ion-list{
+    padding: 10px;
+  }
+
+  #solutions{
+    #resultGrid{
+          padding: 0px !important;
+      }
+
+      ion-label.label.label-md, ion-label.label.label-ios{
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+      }
+  }
+
+
+      .choices{
+          div {
+            max-height: 200px;
+            height: 40px;
+            line-height: 40px;
+            overflow-y: scroll;
+            font-size: 1.6rem;
+          }
+          span {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;
+          }
+      }
+
+         ion-card-title.card-title.card-title-md, ion-card-title.card-title.card-title-ios,
+          ion-card-title.card-title.card-title-wp{
+            font-size: 1.7rem !important;
+            font-weight: bold;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+          }
+
+      .background{
+        background: #D3D3D3 no-repeat;
+        background-size: cover;
+   }
+
+    video {
+      background:transparent url('../assets/images/quizbg.png') no-repeat 0 0;
+      -webkit-background-size:cover;
+      -moz-background-size:cover;
+      -o-background-size:cover;
+      background-size:cover;
+    }
+    .quiz{
+      .div-img{
+        img{
+          height: auto;
+        width: 100%;
+        }
+        display: absolute;
+        top: 10px;
+        left: 15px;
+        text-align: left;
+      }
+
+    }
+
+    ion-grid{
+          padding: 10px;
+          text-align: center;
+          height: 100%;
+          justify-content: center;
+          h1{
+            margin-bottom: 0rem;
+            margin-top: 2rem !important;
+            color: map-get($colors, light);
+          }
+          p{
+             margin-top: 0rem;
+              margin-bottom: 2rem;
+              color: map-get($colors, light);
+          }
+        }
+        .first{
+          background:  #17A599;
+        }
+        .second{
+          background: #CA0936;
+        }
+
+        hr{
+          border-top-width: 3px;
+        }
+}
+
+

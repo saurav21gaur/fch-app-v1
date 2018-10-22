@@ -1,0 +1,38 @@
+
+<ion-content>
+  <ion-card>
+    <ion-card-header text-center>
+      Memory %
+    </ion-card-header>
+    <ion-card-content>
+      <p text-center>You have solved <b>{{memorySolved}}</b> Memory Based Quiz</p>
+      <canvas #memoryCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-header text-center>
+      Application %
+    </ion-card-header>
+    <ion-card-content>
+      <p text-center>You have solved <b>{{applicationSolved}}</b> Application Based Quiz</p>
+      <canvas #applicationCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+
+
+
+  <ion-card>
+    <ion-card-header text-center>
+      Speed %
+    </ion-card-header>
+    <ion-card-content>
+      <p text-center>You have solved <b>{{speedSolved}}</b> Speed Based Quiz</p>
+      <canvas #speedCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <button ion-button block outline color="btn" (tap)="onClose()">Go Back</button>
+</ion-footer>

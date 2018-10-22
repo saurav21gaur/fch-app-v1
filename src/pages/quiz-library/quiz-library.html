@@ -1,0 +1,72 @@
+<ion-header >
+
+  <ion-navbar no-border-bottom >
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Quiz Library</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="course" >
+      <ion-segment-button value="ca" >
+        CA
+      </ion-segment-button>
+      <ion-segment-button value="cs" >
+        CS
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content class="background">
+  <div class="slider">
+    <img class="animate-in-secondary" src="assets/images/quizlib.png" alt="Choose Your Topic">
+  </div>
+
+
+  <div [ngSwitch]="course">
+    <ion-list *ngSwitchCase="'ca'">
+      <ion-item-group *ngFor="let stage of caLibrary">
+        <ion-item-divider class="list-grow-animation" color="light">{{ stage.stageId | uppercase }}</ion-item-divider>
+        <ion-item class="list-grow-animation" *ngFor="let subject of stage.subject" (click)="toggleDetails(subject.subjectId)" item-left>
+         <ion-icon ios="ios-add" md="md-add" *ngIf="show !== subject.subjectId"></ion-icon>
+          <ion-icon ios="ios-remove" md="md-remove" *ngIf="show === subject.subjectId"></ion-icon>
+          {{subject.subjectName | titlecase}}
+          <div *ngIf="show === subject.subjectId">
+            <ion-list *ngFor="let fa of subject.fa" class="inner-list" no-lines>
+              <button ion-item
+              (tap)="toChapters(course, stage.stageId, subject.subjectName, subject.subjectId, fa)">
+                {{fa | uppercase}}
+              </button>
+            </ion-list>
+          </div>
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'cs'">
+      <ion-item-group *ngFor="let stage of csLibrary">
+        <ion-item-divider class="list-grow-animation" color="light">{{ stage.stageId | uppercase }}</ion-item-divider>
+        <ion-item class="list-grow-animation" *ngFor="let subject of stage.subject" (click)="toggleDetails(subject.subjectId)">
+          <ion-icon ios="ios-add" md="md-add" *ngIf="show !== subject.subjectId"></ion-icon>
+          <ion-icon ios="ios-remove" md="md-remove" *ngIf="show === subject.subjectId"></ion-icon>
+          {{subject.subjectName | titlecase}}
+          <div *ngIf="show === subject.subjectId">
+            <ion-list *ngFor="let fa of subject.fa" class="inner-list" no-lines>
+              <button ion-item (tap)="toChapters(course, stage.stageId, subject.subjectName, subject.subjectId, fa)">
+                {{fa | uppercase}}
+              </button>
+            </ion-list>
+          </div>
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
+  </div>  
+
+
+</ion-content>

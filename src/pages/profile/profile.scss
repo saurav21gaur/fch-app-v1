@@ -1,0 +1,81 @@
+page-profile {
+
+  .scroll-content{
+    background-image: url('../assets/images/profilebg.png');
+      background-size: cover;
+      background-position-x: 50%;
+  }
+  .splash-info {
+    z-index: 2;
+    text-align: center;
+  }
+  .splash-logo {
+    margin: auto;
+    background-size: 100%;
+    width: 128px;
+    height: 128px;
+  }
+  .splash-intro {
+    font-size: 18px;
+    font-weight: bold;
+    max-width: 80%;
+    margin: auto;
+    button{
+      margin-bottom: 1.4rem;
+    }
+  }
+
+  .profile-pic{
+    position: relative;
+    background: transparent;
+     border-radius: 100px;
+       width: 130px;
+        height: 130px;
+  }
+
+      #profile-name {
+        margin-top: 3.6rem;
+        margin-bottom: 0.2rem;
+        color: map-get($colors, light);
+        font-size: 26px;
+      }
+      #profile-description {
+        font-size: 15px;
+        color: map-get($colors, light);
+      }
+
+      #profile-image {
+        display: block;
+        border-radius: 100px;
+        border: 1px solid #fff;
+        width: 128px;
+        height: 128px;
+        box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+      }
+
+      .profile-content{
+        background: #fff;
+        ion-grid{
+          padding: 0;
+          text-align: center;
+          height: 100%;
+          justify-content: center;
+          h1{
+            margin-bottom: 0rem;
+            margin-top: 3rem;
+            color: #fff;
+          }
+          p{
+             margin-top: 0rem;
+              margin-bottom: 3rem;
+              color: map-get($colors, light);
+          }
+        }
+        .first{
+          background: map-get($colors, profile1);
+        }
+        .second{
+          background: map-get($colors, profile2);
+        }
+      }
+}

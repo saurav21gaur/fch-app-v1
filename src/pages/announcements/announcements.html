@@ -1,0 +1,81 @@
+<ion-header>
+
+  <ion-navbar no-border>
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Knowledge Center</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+
+    <ion-card *ngFor="let announcement of announcements">
+         <img [src]="announcement.img" *ngIf="announcement.img" />
+        <ion-card-content>
+          <ion-card-title>
+            {{announcement.title}}
+          </ion-card-title>
+          <p>{{announcement.message}}</p>
+
+
+
+          <ion-row no-padding *ngIf="announcement.downloadLink">
+            <ion-col text-center>
+              <button ion-button icon-left clear *ngIf="announcement.downloadLink" (tap)="download(announcement);">
+              <ion-icon name="cloud-download"></ion-icon>
+              <div>Download now!</div>
+            </button>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col text-left align-self-center>
+              <ion-note>
+                {{announcement.date | amTimeAgo}}
+              </ion-note>
+            </ion-col>
+
+            <ion-col text-right>
+              <button ion-button color="primary" clear small icon-start (tap)="shareSheetShare(announcement)">
+              <ion-icon name='share-alt'></ion-icon>
+              Share
+            </button>
+
+            </ion-col>
+          </ion-row>
+
+        </ion-card-content>
+        <div class="news" *ngIf="announcement.newsLink">
+          <button ion-button full clear (click)="goToNews(announcement.newsLink)" color="light">
+            Tap to read more
+        </button>
+
+        </div>
+    </ion-card>
+</ion-content>
+
+<ion-footer transparent no-border>
+  <ion-grid no-padding>
+    <ion-row no-padding>
+      <ion-col>
+        <ion-item (click)="getItems('pdf')" [class.selected]="'pdf' === currentSelected" icon-left>
+          <ion-icon ios="ios-download" md="md-download"></ion-icon> PDF
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item (click)="getItems('news')" [class.selected]="'news' === currentSelected" icon-left>
+          <ion-icon name="chatboxes"></ion-icon>News</ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item (click)="getItems('misc')" [class.selected]="'misc' === currentSelected" icon-left>
+          <ion-icon name="create"></ion-icon>Misc</ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item (click)="getItems('all')" [class.selected]="'all' === currentSelected" icon-left>
+          <ion-icon name="folder" ></ion-icon>All</ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
